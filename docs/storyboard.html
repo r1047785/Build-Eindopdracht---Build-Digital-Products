@@ -1,0 +1,555 @@
+<title>Storyboard Flight 305</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Special+Elite&display=swap">
+<style>
+/* Layout: een FBI-dossier (papier) met storyboardframes als donkere filmstills, rode draad als verbinding */
+:root {
+  --paper: #f3f2ef;
+  --card: #ffffff;
+  --ink: #161616;
+  --ink-soft: #55534f;
+  --grey: #b3b2ae;
+  --line: #d9d7d2;
+  --red: #b3141b;
+  --film: #121212;
+  --display: "Oswald", "Arial Narrow", Impact, sans-serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --typed: "Special Elite", "Courier New", Courier, monospace;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 1.55;
+}
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-block: 40px 72px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid;
+  gap: 48px;
+}
+
+/* header */
+.head { display: grid; gap: 18px; }
+.stamp-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.typed { font-family: var(--typed); letter-spacing: .02em; }
+.tag {
+  font-family: var(--typed);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  border: 1.5px solid var(--ink);
+  padding: 3px 8px;
+}
+.tag.red { color: var(--red); border-color: var(--red); transform: rotate(-2deg); }
+h1 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(40px, 7vw, 84px);
+  line-height: .95;
+  text-transform: uppercase;
+  letter-spacing: .01em;
+  margin: 0;
+  text-wrap: balance;
+}
+h1 span { color: var(--red); }
+.lede { max-width: 64ch; margin: 0; color: var(--ink-soft); font-size: 17px; }
+.facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+@media (max-width: 560px) { .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.facts div { background: var(--card); padding: 12px 14px; min-width: 0; }
+.facts dt { font-family: var(--typed); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-soft); }
+.facts dd { margin: 2px 0 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+h2 {
+  font-family: var(--display);
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 26px;
+  letter-spacing: .03em;
+  margin: 0;
+  display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+}
+h2 small { font-family: var(--typed); font-size: 13px; color: var(--ink-soft); text-transform: none; letter-spacing: 0; }
+section { display: grid; gap: 18px; }
+
+/* emotiecurve */
+.curve { background: var(--card); border: 1px solid var(--line); padding: 18px 12px 8px; overflow-x: auto; }
+.curve svg { display: block; min-width: 720px; width: 100%; height: auto; }
+.legend { display: flex; gap: 18px; flex-wrap: wrap; font-size: 13px; color: var(--ink-soft); padding: 6px 6px 8px; }
+.legend i { display: inline-block; width: 14px; height: 10px; vertical-align: middle; margin-right: 6px; }
+
+/* frames */
+.frames { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+@media (max-width: 820px) { .frames { grid-template-columns: minmax(0, 1fr); } }
+.frame {
+  background: var(--card);
+  border: 1px solid var(--line);
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  min-width: 0;
+}
+.shot { background: var(--film); position: relative; }
+.shot svg { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
+.shot .sc {
+  position: absolute; left: 10px; top: 8px;
+  font-family: var(--typed); font-size: 12px; color: #e9e7e2; letter-spacing: .12em;
+}
+.shot .mode {
+  position: absolute; right: 10px; top: 8px;
+  font-family: var(--typed); font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+  padding: 2px 7px; border: 1px solid #e9e7e2; color: #e9e7e2;
+}
+.shot .mode.game { background: var(--red); border-color: var(--red); color: #fff; }
+.frame-title { padding: 16px 18px 0; display: grid; gap: 4px; }
+.frame-title h3 { font-family: var(--display); font-weight: 500; font-size: 22px; text-transform: uppercase; margin: 0; letter-spacing: .02em; text-wrap: balance; }
+.emo { font-family: var(--typed); font-size: 13px; color: var(--red); }
+.notes { margin: 0; padding: 12px 18px 18px; display: grid; gap: 10px; }
+.notes div { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 10px; border-top: 1px dashed var(--line); padding-top: 9px; }
+.notes dt { font-family: var(--typed); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-soft); padding-top: 2px; }
+.notes dd { margin: 0; font-size: 14px; }
+.notes code { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: 12.5px; background: var(--paper); padding: 1px 4px; }
+
+/* data */
+.data { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 900px) { .data { grid-template-columns: minmax(0, 1fr); } }
+.box { background: var(--card); border: 1px solid var(--line); padding: 18px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.box h3 { margin: 0; font-family: var(--display); font-weight: 500; text-transform: uppercase; font-size: 18px; letter-spacing: .03em; }
+.box ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 14px; }
+.box code { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: 12.5px; }
+.note { font-size: 13px; color: var(--ink-soft); margin: 0; max-width: 70ch; }
+.foot { border-top: 1px solid var(--line); padding-top: 16px; font-size: 13px; color: var(--ink-soft); }
+
+/* PDF-export: A4 liggend, twee scènes per pagina */
+@page { size: A4 landscape; margin: 10mm; }
+@media print {
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .wrap { max-width: none; padding-block: 0; gap: 28px; }
+  .curve svg { min-width: 0; }
+  .wrap { gap: 20px; }
+  .head { gap: 12px; }
+  h1 { font-size: 52px; }
+  .lede { font-size: 14px; max-width: none; }
+  .facts { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .curve { padding-top: 10px; }
+  .curve svg { max-height: 210px; }
+  .frames { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .frame { grid-template-columns: 40% minmax(0, 1fr); grid-template-rows: auto 1fr; }
+  .frame .shot { grid-row: 1 / span 2; align-self: start; }
+  .frame-title { padding-top: 10px; }
+  .frame, .box, .curve, .facts { break-inside: avoid; }
+  section[aria-labelledby="frames-h"], section[aria-labelledby="data-h"] { break-before: page; }
+  .notes { gap: 6px; padding-block: 8px 12px; }
+  .notes div { padding-top: 6px; }
+  .notes dd { font-size: 12px; line-height: 1.38; }
+}
+</style>
+
+<div class="wrap">
+
+  <header class="head">
+    <div class="stamp-row">
+      <span class="tag">Dossier NORJAK</span>
+      <span class="tag red">Onopgelost</span>
+      <span class="typed" style="font-size:13px;color:var(--ink-soft)">Yente + Soulaimane · Build Digital Products · storyboard v1</span>
+    </div>
+    <h1>Het mysterie van <span>Dan Cooper</span></h1>
+    <p class="lede">Wat is jouw verhaal achter dit mysterie? De bezoeker stapt als passagier aan boord van Flight 305, beleeft de kaping al scrollend, ziet Cooper in het donker verdwijnen en zet daarna zijn of haar theorie op een gedeelde kaart. Coopers zaak blijft onopgelost. Daarna draait het om: de bezoeker vertelt iets waarmee hij of zij zelf ooit weg is gekomen. Daarvan maken we een ouderwets dossier met naam en zwart-witfoto, rood gestempeld "Case closed". In het archief kun je door de zaken van alle bezoekers bladeren.</p>
+    <dl class="facts">
+      <div><dt>Datum</dt><dd>24 november 1971</dd></div>
+      <div><dt>Vlucht</dt><dd>Northwest Orient 305</dd></div>
+      <div><dt>Route</dt><dd>Portland → Seattle</dd></div>
+      <div><dt>Losgeld</dt><dd>$200.000 in biljetten van $20</dd></div>
+      <div><dt>Gevonden</dt><dd>$5.800, Tena Bar, 1980</dd></div>
+      <div><dt>FBI</dt><dd>Onderzoek gestopt in 2016</dd></div>
+    </dl>
+  </header>
+
+  <section aria-labelledby="curve-h">
+    <h2 id="curve-h">Spanningsboog <small>de emoties uit fase 1 over de acht scènes</small></h2>
+    <div class="curve">
+      <svg viewBox="0 0 960 230" role="img" aria-label="Spanningscurve: stijgt van nieuwsgierig naar angst bij de kaping, zakt naar nieuwsgierigheid op de kaart en eindigt in voldoening bij het archief">
+        <!-- y-schaal: spanning 0..10 → y 190..20 (17px per punt) -->
+        <g stroke="#e4e2dd" stroke-width="1">
+          <line x1="60" y1="190" x2="930" y2="190"/>
+          <line x1="60" y1="105" x2="930" y2="105"/>
+          <line x1="60" y1="20" x2="930" y2="20"/>
+        </g>
+        <g font-family="Special Elite, Courier New, monospace" font-size="11" fill="#55534f" text-anchor="end">
+          <text x="52" y="194">rustig</text>
+          <text x="52" y="109">gespannen</text>
+          <text x="52" y="24">piek</text>
+        </g>
+        <!-- zones: scroll 01–05, kaart 06, eigen zaak 07–08 -->
+        <rect x="60" y="196" width="597" height="6" fill="#161616"/>
+        <rect x="617" y="196" width="115" height="6" fill="#b3141b"/>
+        <rect x="732" y="196" width="198" height="6" fill="#b3b2ae"/>
+        <!-- x: 8 scènes, 100 + i*115 ; spanning 3,5,6,9,8,6,6,4 → y = 190 - 17*v -->
+        <polyline fill="none" stroke="#161616" stroke-width="2.5" stroke-linejoin="round"
+          points="100,139 215,105 330,88 445,37 560,54 675,88 790,88 905,122"/>
+        <g fill="#ffffff" stroke="#161616" stroke-width="2">
+          <circle cx="100" cy="139" r="5"/><circle cx="215" cy="105" r="5"/><circle cx="330" cy="88" r="5"/>
+          <circle cx="445" cy="37" r="6" fill="#b3141b" stroke="#b3141b"/><circle cx="560" cy="54" r="5"/>
+          <circle cx="675" cy="88" r="5"/><circle cx="790" cy="88" r="5"/><circle cx="905" cy="122" r="5"/>
+        </g>
+        <g font-family="IBM Plex Sans, system-ui, sans-serif" font-size="12" fill="#161616" text-anchor="middle">
+          <text x="100" y="160">nieuwsgierig</text>
+          <text x="215" y="126">spannend</text>
+          <text x="330" y="78">twijfel</text>
+          <text x="445" y="58" fill="#b3141b" font-weight="600">angst</text>
+          <text x="560" y="44">mysterie</text>
+          <text x="675" y="109">nieuwsgierig</text>
+          <text x="790" y="78">bekentenis</text>
+          <text x="905" y="143">voldoening</text>
+        </g>
+        <g font-family="Special Elite, Courier New, monospace" font-size="11" fill="#55534f" text-anchor="middle">
+          <text x="100" y="222">01</text><text x="215" y="222">02</text><text x="330" y="222">03</text><text x="445" y="222">04</text>
+          <text x="560" y="222">05</text><text x="675" y="222">06</text><text x="790" y="222">07</text><text x="905" y="222">08</text>
+        </g>
+      </svg>
+      <div class="legend">
+        <span><i style="background:#161616"></i>Scroll: het verhaal (01–05)</span>
+        <span><i style="background:#b3141b"></i>Kaart: jouw theorie (06)</span>
+        <span><i style="background:#b3b2ae"></i>Jouw zaak en het archief (07–08)</span>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="frames-h">
+    <h2 id="frames-h">Scènes <small>van instappen tot jouw eigen gesloten zaak</small></h2>
+    <div class="frames">
+
+      <!-- 01 TICKET -->
+      <article class="frame">
+        <div class="shot">
+          <svg viewBox="0 0 320 180" aria-hidden="true">
+            <rect width="320" height="180" fill="#121212"/>
+            <rect x="70" y="22" width="180" height="34" rx="3" fill="#2a2a2a"/>
+            <rect x="84" y="46" width="152" height="5" fill="#000"/>
+            <circle cx="232" cy="33" r="3" fill="#b3141b"/>
+            <g transform="rotate(-2 160 110)">
+              <rect x="92" y="50" width="136" height="112" fill="#f3f2ef"/>
+              <rect x="92" y="50" width="136" height="18" fill="#b3141b"/>
+              <text x="100" y="63" font-family="Special Elite, monospace" font-size="9" fill="#fff">NORTHWEST ORIENT · 305</text>
+              <g font-family="Special Elite, monospace" font-size="8" fill="#161616">
+                <text x="100" y="84">PASSENGER</text><text x="100" y="114">FROM  PDX → SEA</text>
+                <text x="100" y="128">DATE  24 NOV 1971</text><text x="180" y="84">SEAT</text>
+              </g>
+              <rect x="100" y="88" width="70" height="12" fill="none" stroke="#161616" stroke-dasharray="2 2"/>
+              <rect x="180" y="88" width="34" height="12" fill="none" stroke="#161616" stroke-dasharray="2 2"/>
+              <g fill="#161616"><rect x="100" y="140" width="2" height="14"/><rect x="104" y="140" width="1" height="14"/><rect x="107" y="140" width="3" height="14"/><rect x="112" y="140" width="1" height="14"/><rect x="115" y="140" width="2" height="14"/><rect x="119" y="140" width="1" height="14"/><rect x="122" y="140" width="3" height="14"/><rect x="127" y="140" width="1" height="14"/></g>
+            </g>
+          </svg>
+          <span class="sc">SC 01</span><span class="mode">interactie</span>
+        </div>
+        <div class="frame-title"><h3>Je ticket wordt geprint</h3><span class="emo">emotie: nieuwsgierig</span></div>
+        <dl class="notes">
+          <div><dt>Wat zie je</dt><dd>Een donkere ticketbalie. De bezoeker vult een ticket in: naam of alias en een stoel. Daarna rolt het ticket uit een printer.</dd></div>
+          <div><dt>Beweging</dt><dd>Het papier schuift met kleine schokken naar buiten en de inkt verschijnt regel voor regel.</dd></div>
+          <div><dt>Interactie</dt><dd>Een formulier in Vue. Na "Instappen" volgt de printanimatie in Three.js en daarna scrolt de pagina naar de luchthaven.</dd></div>
+          <div><dt>Data</dt><dd>Schrijft een passagier: alias, stoel en tijdstip.</dd></div>
+          <div><dt>TSL</dt><dd>Inkt-reveal met een <code>uniform</code> progress en een drempel op ruis. Papiertextuur met <code>mx_noise_float</code>.</dd></div>
+        </dl>
+      </article>
+
+      <!-- 02 LUCHTHAVEN -->
+      <article class="frame">
+        <div class="shot">
+          <svg viewBox="0 0 320 180" aria-hidden="true">
+            <defs>
+              <pattern id="rain" width="14" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(12)">
+                <line x1="4" y1="0" x2="4" y2="9" stroke="#8a8985" stroke-width=".7" opacity=".55"/>
+              </pattern>
+            </defs>
+            <rect width="320" height="180" fill="#121212"/>
+            <rect y="118" width="320" height="62" fill="#1b1b1b"/>
+            <rect x="18" y="74" width="96" height="44" fill="#242424"/>
+            <rect x="80" y="56" width="16" height="62" fill="#2c2c2c"/>
+            <rect x="74" y="50" width="28" height="10" fill="#2c2c2c"/>
+            <g fill="#d9c9a0" opacity=".8"><rect x="26" y="86" width="8" height="5"/><rect x="40" y="86" width="8" height="5"/><rect x="26" y="98" width="8" height="5"/><rect x="66" y="98" width="8" height="5"/><rect x="80" y="64" width="16" height="4"/></g>
+            <!-- vliegtuig zijaanzicht -->
+            <g fill="#3a3a3a">
+              <rect x="150" y="98" width="140" height="18" rx="9"/>
+              <polygon points="270,98 292,70 300,70 292,100"/>
+              <polygon points="200,110 236,110 222,128 196,128"/>
+            </g>
+            <g fill="#d9c9a0" opacity=".7"><rect x="166" y="103" width="4" height="4"/><rect x="176" y="103" width="4" height="4"/><rect x="186" y="103" width="4" height="4"/><rect x="196" y="103" width="4" height="4"/><rect x="206" y="103" width="4" height="4"/><rect x="216" y="103" width="4" height="4"/></g>
+            <circle cx="296" cy="72" r="2.5" fill="#b3141b"/>
+            <!-- reflectie -->
+            <rect x="150" y="132" width="140" height="6" rx="3" fill="#3a3a3a" opacity=".35"/>
+            <rect x="26" y="126" width="80" height="2" fill="#d9c9a0" opacity=".2"/>
+            <rect width="320" height="180" fill="url(#rain)"/>
+          </svg>
+          <span class="sc">SC 02</span><span class="mode">scroll</span>
+        </div>
+        <div class="frame-title"><h3>Portland, 24 november 1971</h3><span class="emo">emotie: spannend</span></div>
+        <dl class="notes">
+          <div><dt>Wat zie je</dt><dd>Een donkere luchthaven in de regen. De Boeing 727 staat op het natte asfalt en de lichten weerspiegelen in plassen.</dd></div>
+          <div><dt>Beweging</dt><dd>Bij het scrollen rijdt de camera langzaam over het platform naar de trap achter in het toestel. Daarna taxiet het vliegtuig weg.</dd></div>
+          <div><dt>Interactie</dt><dd>Alleen scrollen. Een getypte ondertitel geeft datum, plaats en vluchtnummer.</dd></div>
+          <div><dt>Data</dt><dd>Leest passagiers: andere bezoekers zijn verlichte raampjes of silhouetten.</dd></div>
+          <div><dt>TSL</dt><dd>Nat asfalt met roughness op ruis, regen als instanced strepen met <code>time</code>, filmkorrel en vignet als post-processing.</dd></div>
+        </dl>
+      </article>
+
+      <!-- 03 OPSTIJGEN -->
+      <article class="frame">
+        <div class="shot">
+          <svg viewBox="0 0 320 180" aria-hidden="true">
+            <rect width="320" height="180" fill="#121212"/>
+            <g fill="#4a4a48" opacity=".5"><ellipse cx="60" cy="150" rx="90" ry="22"/><ellipse cx="250" cy="160" rx="110" ry="26"/></g>
+            <g fill="#6b6a67" opacity=".45"><ellipse cx="270" cy="60" rx="70" ry="16"/><ellipse cx="40" cy="40" rx="60" ry="12"/></g>
+            <g transform="rotate(-18 160 96)" fill="#cfcdc8">
+              <rect x="110" y="88" width="104" height="14" rx="7"/>
+              <polygon points="198,88 214,66 220,66 214,90"/>
+              <polygon points="148,98 176,98 162,116 140,116"/>
+            </g>
+            <g fill="#8a8985" opacity=".5"><ellipse cx="150" cy="128" rx="80" ry="14"/></g>
+            <g stroke="#b3141b" stroke-width="1.5" fill="none"><path d="M24 120 v34 m-6 -8 l6 8 6 -8"/></g>
+            <text x="34" y="150" font-family="Special Elite, monospace" font-size="9" fill="#b3141b">scroll</text>
+          </svg>
+          <span class="sc">SC 03</span><span class="mode">scroll</span>
+        </div>
+        <div class="frame-title"><h3>Door de wolken</h3><span class="emo">emotie: twijfel, er klopt iets niet</span></div>
+        <dl class="notes">
+          <div><dt>Wat zie je</dt><dd>Het vliegtuig stijgt op en breekt door een dik wolkendek. De camera gaat de cabine in, waar de bezoeker zijn eigen stoel ziet.</dd></div>
+          <div><dt>Beweging</dt><dd>De scrollpositie stuurt de hoogte van het vliegtuig. Wolken schuiven voorbij in lagen die met verschillende snelheden bewegen.</dd></div>
+          <div><dt>Interactie</dt><dd>Scrollen. In de cabine staan de aliassen van andere bezoekers op hun stoelen, en jouw eigen stoel licht op.</dd></div>
+          <div><dt>Data</dt><dd>Leest passagiers en zet ze op hun gekozen stoel.</dd></div>
+          <div><dt>TSL</dt><dd>Wolken als sprites of een volume met <code>mx_fractal_noise_float</code> en een <code>uniform</code> voor scroll-offset.</dd></div>
+        </dl>
+      </article>
+
+      <!-- 04 KAPING -->
+      <article class="frame">
+        <div class="shot">
+          <svg viewBox="0 0 320 180" aria-hidden="true">
+            <rect width="320" height="180" fill="#121212"/>
+            <g stroke="#3a3a3a" stroke-width="1.2" fill="none">
+              <line x1="0" y1="20" x2="130" y2="70"/><line x1="320" y1="20" x2="190" y2="70"/>
+              <line x1="0" y1="180" x2="130" y2="110"/><line x1="320" y1="180" x2="190" y2="110"/>
+            </g>
+            <rect x="130" y="70" width="60" height="40" fill="#1b1b1b"/>
+            <g fill="#2c2c2c">
+              <rect x="14" y="110" width="44" height="60"/><rect x="262" y="110" width="44" height="60"/>
+              <rect x="70" y="100" width="30" height="40"/><rect x="220" y="100" width="30" height="40"/>
+              <rect x="110" y="92" width="16" height="22"/><rect x="194" y="92" width="16" height="22"/>
+            </g>
+            <g transform="rotate(4 160 92)">
+              <rect x="112" y="58" width="96" height="62" fill="#f3f2ef"/>
+              <text x="120" y="80" font-family="Special Elite, monospace" font-size="11" fill="#161616">MISS —</text>
+              <text x="120" y="96" font-family="Special Elite, monospace" font-size="11" fill="#161616">I HAVE A BOMB</text>
+              <line x1="120" y1="100" x2="200" y2="100" stroke="#b3141b" stroke-width="2"/>
+            </g>
+            <rect width="320" height="180" fill="#b3141b" opacity=".12"/>
+          </svg>
+          <span class="sc">SC 04</span><span class="mode">scroll</span>
+        </div>
+        <div class="frame-title"><h3>Het briefje</h3><span class="emo">emotie: angst</span></div>
+        <dl class="notes">
+          <div><dt>Wat zie je</dt><dd>In de cabine geeft een man in pak een briefje aan de stewardess. Het licht kleurt rood. Daarna zie je kort de eisen: $200.000 en vier parachutes.</dd></div>
+          <div><dt>Beweging</dt><dd>De camera zoomt traag op het briefje en het beeld trilt licht. Het briefje vouwt open terwijl je scrollt.</dd></div>
+          <div><dt>Interactie</dt><dd>Scrollen. De tekst van het briefje verschijnt alsof hij getypt wordt.</dd></div>
+          <div><dt>Data</dt><dd>Geen.</dd></div>
+          <div><dt>TSL</dt><dd>Rood noodlicht pulserend met <code>oscSine(time)</code>, chromatische aberratie in de post-pass.</dd></div>
+        </dl>
+      </article>
+
+      <!-- 05 SPRONG -->
+      <article class="frame">
+        <div class="shot">
+          <svg viewBox="0 0 320 180" aria-hidden="true">
+            <rect width="320" height="180" fill="#121212"/>
+            <g fill="#3a3a3a">
+              <rect x="150" y="20" width="170" height="20" rx="10"/>
+              <polygon points="150,40 170,40 150,70"/>
+            </g>
+            <line x1="156" y1="40" x2="142" y2="72" stroke="#8a8985" stroke-width="3"/>
+            <path d="M108 86 q14 -18 28 0" fill="#cfcdc8"/>
+            <g stroke="#8a8985" stroke-width=".7"><line x1="108" y1="86" x2="122" y2="104"/><line x1="136" y1="86" x2="122" y2="104"/></g>
+            <rect x="119" y="103" width="6" height="11" fill="#cfcdc8"/>
+            <g fill="#0b0b0b" stroke="#232323" stroke-width="1">
+              <polygon points="0,180 20,140 40,180"/><polygon points="30,180 54,132 78,180"/><polygon points="70,180 92,146 114,180"/>
+              <polygon points="104,180 130,128 156,180"/><polygon points="148,180 170,142 192,180"/><polygon points="182,180 208,134 234,180"/>
+              <polygon points="226,180 248,144 270,180"/><polygon points="262,180 290,130 318,180"/>
+            </g>
+            <g stroke="#8a8985" stroke-width=".7" opacity=".4"><line x1="40" y1="20" x2="34" y2="50"/><line x1="90" y1="40" x2="84" y2="70"/><line x1="240" y1="70" x2="234" y2="100"/><line x1="280" y1="58" x2="274" y2="88"/></g>
+          </svg>
+          <span class="sc">SC 05</span><span class="mode">scroll</span>
+        </div>
+        <div class="frame-title"><h3>De sprong</h3><span class="emo">emotie: mysterie</span></div>
+        <dl class="notes">
+          <div><dt>Wat zie je</dt><dd>Rond acht uur 's avonds gaat de trap achterin open. Cooper springt in de regen en verdwijnt boven een pikdonker bos in het zuidwesten van Washington.</dd></div>
+          <div><dt>Beweging</dt><dd>De camera kijkt de trap af en valt mee naar beneden. De parachute klapt open en het figuurtje lost op in het donker.</dd></div>
+          <div><dt>Interactie</dt><dd>Laatste stuk scroll. De pagina stopt en zegt: "Hij werd nooit gevonden. Waar denk jij dat hij landde?"</dd></div>
+          <div><dt>Data</dt><dd>Geen. Dit is de overgang naar de game.</dd></div>
+          <div><dt>TSL</dt><dd>Dissolve van Cooper met noise-alpha, mist met <code>fog</code> op diepte, het bos als instanced bomen.</dd></div>
+        </dl>
+      </article>
+
+      <!-- 06 KAART -->
+      <article class="frame">
+        <div class="shot">
+          <svg viewBox="0 0 320 180" aria-hidden="true">
+            <defs>
+              <radialGradient id="glowW"><stop offset="0" stop-color="#ffffff" stop-opacity=".95"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+              <radialGradient id="glowR"><stop offset="0" stop-color="#e0262e" stop-opacity=".95"/><stop offset="1" stop-color="#e0262e" stop-opacity="0"/></radialGradient>
+            </defs>
+            <rect width="320" height="180" fill="#121212"/>
+            <g stroke="#232323" stroke-width="1"><line x1="0" y1="45" x2="320" y2="45"/><line x1="0" y1="90" x2="320" y2="90"/><line x1="0" y1="135" x2="320" y2="135"/><line x1="80" y1="0" x2="80" y2="180"/><line x1="160" y1="0" x2="160" y2="180"/><line x1="240" y1="0" x2="240" y2="180"/></g>
+            <path d="M0 150 C 60 140, 90 160, 140 150 S 230 120, 320 132" stroke="#4a4a48" stroke-width="6" fill="none"/>
+            <path d="M70 0 C 100 40, 160 50, 200 100 S 250 150, 270 180" stroke="#cfcdc8" stroke-width="1.2" stroke-dasharray="4 4" fill="none"/>
+            <circle cx="150" cy="70" r="26" fill="url(#glowW)"/>
+            <circle cx="190" cy="96" r="18" fill="url(#glowR)"/>
+            <circle cx="120" cy="104" r="12" fill="url(#glowW)"/>
+            <circle cx="230" cy="130" r="10" fill="url(#glowR)"/>
+            <circle cx="92" cy="146" r="14" fill="url(#glowW)"/>
+            <circle cx="210" cy="62" r="5" fill="none" stroke="#b3141b" stroke-width="2"/>
+            <circle cx="210" cy="62" r="11" fill="none" stroke="#b3141b" stroke-width="1" opacity=".5"/>
+            <text x="94" y="168" font-family="Special Elite, monospace" font-size="8" fill="#8a8985">TENA BAR</text>
+            <text x="12" y="22" font-family="Special Elite, monospace" font-size="9" fill="#8a8985">SW WASHINGTON</text>
+          </svg>
+          <span class="sc">SC 06</span><span class="mode game">game</span>
+        </div>
+        <div class="frame-title"><h3>Waar landde Cooper?</h3><span class="emo">emotie: nieuwsgierig</span></div>
+        <dl class="notes">
+          <div><dt>Wat zie je</dt><dd>De scène wordt een donkere kaart met de vliegroute, de Columbia-rivier, bewijsstukken (das, parachute, het geld bij Tena Bar) en lichtpunten van andere bezoekers.</dd></div>
+          <div><dt>Beweging</dt><dd>De camera kantelt van het bos naar bovenaanzicht. Lichtpunten flikkeren aan, en hoe meer stemmen een plek heeft, hoe feller hij brandt.</dd></div>
+          <div><dt>Interactie</dt><dd>Klik op de kaart om je landingsplaats te zetten. Kies een theorie (overleefd of overleden) en zet een schuifje voor hoe zeker je bent. Daarna klapt Coopers dossier dicht met de stempel "Onopgelost" en vraagt de pagina: "En jij? Waarmee ben jij ooit weggekomen?"</dd></div>
+          <div><dt>Data</dt><dd>Schrijft een theorie. Leest alle theorieën: positie wordt een lichtpunt, aantal stemmen de helderheid, theorie de kleur (wit = overleefd, rood = overleden).</dd></div>
+          <div><dt>TSL</dt><dd>Lichtpunten als instanced sprites met een radiale glow. Helderheid en kleur komen uit instance-attributen. Bloom in de post-pass.</dd></div>
+        </dl>
+      </article>
+
+      <!-- 07 JOUW ZAAK -->
+      <article class="frame">
+        <div class="shot">
+          <svg viewBox="0 0 320 180" aria-hidden="true">
+            <rect width="320" height="180" fill="#121212"/>
+            <!-- map -->
+            <rect x="36" y="26" width="248" height="142" fill="#a8946f"/>
+            <rect x="36" y="18" width="84" height="14" fill="#a8946f"/>
+            <text x="44" y="29" font-family="Special Elite, monospace" font-size="8" fill="#3a3025">CASE № 0412</text>
+            <!-- foto zwart-wit met paperclip -->
+            <g transform="rotate(-4 90 80)">
+              <rect x="56" y="40" width="64" height="80" fill="#f3f2ef"/>
+              <rect x="62" y="46" width="52" height="60" fill="#5a5956"/>
+              <circle cx="88" cy="68" r="12" fill="#8a8985"/>
+              <path d="M66 106 q22 -30 44 0" fill="#8a8985"/>
+              <text x="64" y="116" font-family="Special Elite, monospace" font-size="7" fill="#161616">ALIAS: ????</text>
+            </g>
+            <path d="M66 36 v14 a4 4 0 0 0 8 0 v-12" stroke="#cfcdc8" stroke-width="1.5" fill="none"/>
+            <!-- getypt verslag -->
+            <rect x="136" y="38" width="130" height="104" fill="#f3f2ef"/>
+            <text x="144" y="52" font-family="Special Elite, monospace" font-size="8" fill="#161616">VERKLARING</text>
+            <g fill="#8a8985"><rect x="144" y="60" width="110" height="3"/><rect x="144" y="68" width="98" height="3"/><rect x="144" y="76" width="106" height="3"/><rect x="144" y="84" width="80" height="3"/></g>
+            <rect x="144" y="92" width="64" height="3" fill="#161616"/>
+            <g fill="#8a8985"><rect x="144" y="100" width="102" height="3"/><rect x="144" y="108" width="60" height="3"/></g>
+            <!-- stempel -->
+            <g transform="rotate(-12 196 136)">
+              <rect x="128" y="120" width="136" height="30" fill="none" stroke="#b3141b" stroke-width="2.5"/>
+              <text x="196" y="141" font-family="Special Elite, monospace" font-size="17" fill="#b3141b" text-anchor="middle">CASE CLOSED</text>
+            </g>
+          </svg>
+          <span class="sc">SC 07</span><span class="mode">interactie</span>
+        </div>
+        <div class="frame-title"><h3>Jouw eigen zaak</h3><span class="emo">emotie: bekentenis, een beetje ondeugend</span></div>
+        <dl class="notes">
+          <div><dt>Wat zie je</dt><dd>Een ouderwetse kartonnen map op een bureau. Daarin je naam, je zwart-witfoto en een getypte verklaring: waarmee ben jij ooit weggekomen? Coopers zaak bleef open, de jouwe gaat dicht.</dd></div>
+          <div><dt>Beweging</dt><dd>De papieren vallen één voor één in de map, de verklaring wordt regel voor regel uitgetypt. Dan slaat de rode stempel "Case closed" neer en klapt de map dicht.</dd></div>
+          <div><dt>Interactie</dt><dd>Een kort Vue-formulier: wat heb je gedaan, wanneer ongeveer, en een foto (uploaden of overslaan). Je naam komt van je ticket uit SC 01.</dd></div>
+          <div><dt>Data</dt><dd>Werkt de passagier bij met verklaring en foto. Zo wordt je ticket je dossier.</dd></div>
+          <div><dt>TSL</dt><dd>De foto als textuur door een zwart-witfilter met <code>luminance()</code>, contrast en filmkorrel. Stempel-inkt met een ruismasker zodat hij niet perfect drukt.</dd></div>
+        </dl>
+      </article>
+
+      <!-- 08 ARCHIEF -->
+      <article class="frame">
+        <div class="shot">
+          <svg viewBox="0 0 320 180" aria-hidden="true">
+            <rect width="320" height="180" fill="#121212"/>
+            <!-- archieflade in perspectief -->
+            <polygon points="40,170 280,170 250,120 70,120" fill="#2a2a2a"/>
+            <g fill="#a8946f" stroke="#121212" stroke-width="1.5">
+              <rect x="78" y="96" width="164" height="30"/>
+              <rect x="74" y="104" width="172" height="34"/>
+              <rect x="68" y="114" width="184" height="38"/>
+            </g>
+            <g fill="#a8946f"><rect x="90" y="90" width="34" height="8"/><rect x="150" y="98" width="34" height="8"/><rect x="200" y="108" width="34" height="8"/></g>
+            <!-- uitgetrokken map -->
+            <g transform="rotate(-3 160 64)">
+              <rect x="104" y="16" width="112" height="92" fill="#b8a37d" stroke="#121212" stroke-width="1"/>
+              <rect x="112" y="24" width="34" height="42" fill="#5a5956"/>
+              <circle cx="129" cy="38" r="7" fill="#8a8985"/>
+              <path d="M115 66 q14 -20 28 0" fill="#8a8985"/>
+              <g fill="#3a3025"><rect x="154" y="28" width="52" height="3"/><rect x="154" y="36" width="44" height="3"/><rect x="154" y="44" width="48" height="3"/></g>
+              <g transform="rotate(-10 160 88)">
+                <rect x="122" y="78" width="78" height="18" fill="none" stroke="#b3141b" stroke-width="2"/>
+                <text x="161" y="91" font-family="Special Elite, monospace" font-size="10" fill="#b3141b" text-anchor="middle">CASE CLOSED</text>
+              </g>
+            </g>
+            <g stroke="#b3141b" stroke-width="1.5" fill="none"><path d="M262 64 h28 m-7 -6 l7 6 -7 6"/><path d="M58 64 h-28 m7 -6 l-7 6 7 6"/></g>
+          </svg>
+          <span class="sc">SC 08</span><span class="mode">archief</span>
+        </div>
+        <div class="frame-title"><h3>Het archief</h3><span class="emo">emotie: voldoening</span></div>
+        <dl class="notes">
+          <div><dt>Wat zie je</dt><dd>Een archieflade vol mappen, één per bezoeker. Op elk tabje staat een naam. Jouw map staat vooraan.</dd></div>
+          <div><dt>Beweging</dt><dd>Bladeren schuift de mappen naar voren. Een map trek je omhoog uit de lade, hij klapt open en je ziet foto, verklaring en stempel.</dd></div>
+          <div><dt>Interactie</dt><dd>Bladeren met scroll, pijltjes of swipe. Klik een map open om die zaak te lezen. Vanuit het archief kun je terug naar de kaart van SC 06.</dd></div>
+          <div><dt>Data</dt><dd>Leest alle passagiers met hun verklaring en foto.</dd></div>
+          <div><dt>TSL</dt><dd>Mappen als instanced meshes met naam en foto in één texture-atlas. Diepte-onscherpte op de mappen achter de geselecteerde.</dd></div>
+        </dl>
+      </article>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="data-h">
+    <h2 id="data-h">Data achter het verhaal <small>voorstel voor fase 4</small></h2>
+    <p class="note">Een eerste invulling binnen de regels: maximaal 2 collecties, 5 endpoints en 2 à 3 Vue-schermen. Bespreek dit samen voordat het vastligt.</p>
+    <div class="data">
+      <div class="box">
+        <h3>2 collecties</h3>
+        <ul>
+          <li><strong>passengers</strong>: <code>alias, seat, confession, period, photoUrl, createdAt</code>. Het ticket wordt later het dossier.</li>
+          <li><strong>theories</strong>: <code>passengerId, lat, lng, outcome (survived | died), certainty 0–100, text, createdAt</code></li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>5 endpoints</h3>
+        <ul>
+          <li><code>POST /passengers</code>: ticket aanmaken (SC 01)</li>
+          <li><code>PATCH /passengers/:id</code>: verklaring en foto toevoegen (SC 07)</li>
+          <li><code>GET /passengers</code>: cabine en archief (SC 03, 08)</li>
+          <li><code>POST /theories</code>: landingsplaats + theorie (SC 06)</li>
+          <li><code>GET /theories</code>: alle lichtpunten (SC 06)</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>3 Vue-schermen</h3>
+        <ul>
+          <li><strong>Boarding</strong>: ticket invullen en printen (SC 01)</li>
+          <li><strong>Vlucht</strong>: Three.js-canvas met scroll en kaart (SC 02–06)</li>
+          <li><strong>Archief</strong>: jouw zaak maken en door alle zaken bladeren (SC 07–08)</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note"><strong>MVP in één zin (voorstel):</strong> bezoekers boeken een ticket, beleven de kaping al scrollend, zetten hun theorie op een gedeelde kaart en sluiten af met een eigen "case closed"-dossier dat in een archief van alle bezoekers belandt. <strong>Extra's:</strong> elkaars antwoorden zien en theorieën achterlaten bij gehighlighte locaties.</p>
+    <p class="note"><strong>Let op bij de eigen zaak:</strong> de foto is optioneel, en een alias in plaats van je echte naam mag ook. Iedereen kan het archief zien, dus zet er een korte melding bij ("Je zaak is zichtbaar voor andere bezoekers") en hou de mogelijkheid open om ongepaste zaken te verwijderen.</p>
+  </section>
+
+  <p class="foot typed">Stijl: mysterieus, duister, filmisch, vintage, spannend · palet wit, zwart, grijs, rood · shaders in TSL (WebGPURenderer)</p>
+</div>
