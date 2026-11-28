@@ -1,0 +1,13 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: #05070a;
+  color: #e8e4da;
+  font-family: system-ui, sans-serif;
+}
